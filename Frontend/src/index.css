@@ -1,0 +1,5 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html,body{overflow-x:hidden}body{@apply bg-field-50 text-ink antialiased}
+@layer components{.card{@apply rounded-2xl border border-field-200/70 bg-white p-5 shadow-sm}.inp{@apply w-full rounded-lg border border-field-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-field-500}.btn{@apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-field-500 focus-visible:ring-offset-2 disabled:opacity-60}.btn-p{@apply btn bg-field-700 text-white hover:bg-field-900}.btn-o{@apply btn border border-field-200 bg-white text-field-900 hover:bg-field-100}}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.pop{animation:pop .4s ease both}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

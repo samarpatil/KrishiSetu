@@ -1,0 +1,3 @@
+import {tr} from '../../i18n'
+import {Check,Circle,ArrowRight} from 'lucide-react';import {steps} from '../../data/orders'
+export default function OrderTimeline({status}){return <ol className="space-y-3">{steps.map((s,i)=><li key={s} className="flex items-center gap-3 text-sm"><span className={`grid h-6 w-6 place-items-center rounded-full ${i<status?'bg-field-600 text-white':i===status?'bg-amber-500 text-white':'border border-gray-300 text-gray-300'}`}>{i<status?<Check size={14}/>:i===status?<ArrowRight size={14}/>:<Circle size={10}/>}</span><span className={i>status?'text-gray-400':'font-medium'}>{tr(s)}</span></li>)}</ol>}

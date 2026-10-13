@@ -1,0 +1,1 @@
+export const ToastStack=({toasts})=><div className="fixed bottom-4 right-4 z-[60] flex flex-col gap-2" role="status" aria-live="polite">{toasts.map(t=><div key={t.id} className="pop rounded-lg bg-field-900 px-4 py-3 text-sm text-white shadow-lg">{t.m}</div>)}</div>

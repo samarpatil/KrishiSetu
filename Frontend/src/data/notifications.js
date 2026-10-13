@@ -1,0 +1,1 @@
+export const notifications=[{id:'n1',text:'Tomato demand expected to increase by 18.7%.'},{id:'n2',text:'Order #KS1024 has been picked up.'},{id:'n3',text:'New bulk requirement: 5,000 kg wheat.'},{id:'n4',text:'Route optimization completed.'}]

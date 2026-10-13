@@ -1,0 +1,3 @@
+import {tr} from '../../i18n'
+import {ResponsiveContainer,LineChart,Line,XAxis,YAxis,Tooltip,Legend,CartesianGrid} from 'recharts'
+export default function ForecastChart({data}){return <div className="card lg:col-span-2"><h2 className="mb-3 font-medium">{tr("Historical vs predicted demand (kg)")}</h2><div className="h-72"><ResponsiveContainer><LineChart data={data}><CartesianGrid strokeDasharray="3 3" stroke="#e3eedb"/><XAxis dataKey="t" fontSize={12}/><YAxis fontSize={12} width={48}/><Tooltip/><Legend/><Line name={tr("Historical")} dataKey="hist" stroke="#1f6035" strokeWidth={2} dot={false}/><Line name={tr("Predicted")} dataKey="pred" stroke="#c28a1e" strokeWidth={2} strokeDasharray="5 4" dot={false}/></LineChart></ResponsiveContainer></div></div>}

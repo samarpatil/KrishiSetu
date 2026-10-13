@@ -1,0 +1,1 @@
+export default function LoadingState({n=3,h='h-28'}){return <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-busy="true" aria-label="Loading">{Array.from({length:n}).map((_,i)=><div key={i} className={`${h} animate-pulse rounded-2xl bg-field-100`}/>)}</div>}

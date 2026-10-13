@@ -1,0 +1,2 @@
+export const PageHeader=({title,sub,children})=><div className="bg-field-900 text-white"><div className="mx-auto flex max-w-7xl flex-wrap items-end justify-between gap-4 px-4 py-12"><div><h1 className="font-display text-3xl sm:text-4xl">{title}</h1>{sub&&<p className="mt-2 max-w-2xl text-field-200">{sub}</p>}</div>{children}</div></div>
+export const Page=({children})=><div className="mx-auto max-w-7xl px-4 py-8">{children}</div>

@@ -1,0 +1,11 @@
+import {tr} from '../i18n'
+import {useState} from 'react'
+import {matchSuppliers} from '../services'
+import {PageHeader,Page,Field,Select,Empty,Button,useApp} from '../components/common/ui'
+import SupplierCard from '../components/marketplace/SupplierCard'
+export default function SmartMatch(){
+ const [f,setF]=useState({product:'Tomatoes',qty:500,quality:'Grade A',location:'Bhopal',delivery:'Within 24 hours'}),[res,setRes]=useState(null),[busy,setBusy]=useState(false),[err,setErr]=useState(''),{toast}=useApp(),set=k=>v=>setF({...f,[k]:v})
+ const go=async e=>{e.preventDefault();if(!(f.qty>0))return setErr(tr('Enter a quantity greater than 0 kg.'));setErr('');setBusy(true);try{setRes(await matchSuppliers({...f,deliveryNeeded:f.delivery!=='Pickup by me'}));toast(tr('Supplier matches ready.'))}catch(x){setErr(x.message)}setBusy(false)}
+ return <><PageHeader title={tr("Smart Match")} sub={tr("Find the right supplier for your requirement.")}/><Page><div className="grid gap-6 lg:grid-cols-3">
+  <form onSubmit={go} className="card space-y-3 self-start"><Field label={tr("Product")}><Select value={f.product} onChange={set('product')} options={['Tomatoes','Onions','Potatoes','Wheat','Soybean','Chilli']}/></Field><Field label={tr("Quantity (kg)")}><input type="number" className="inp" value={f.qty} onChange={e=>set('qty')(+e.target.value)}/></Field><Field label={tr("Quality")}><Select value={f.quality} onChange={set('quality')} options={['Grade A','Grade B']}/></Field><Field label={tr("Location")}><Select value={f.location} onChange={set('location')} options={['Bhopal','Indore','Sehore','Ujjain','Vidisha']}/></Field><Field label={tr("Delivery requirement")}><Select value={f.delivery} onChange={set('delivery')} options={['Within 24 hours','Within 3 days','Pickup by me']}/></Field>{err&&<p className="text-sm text-red-600">{err}</p>}<Button className="w-full" loading={busy}>{tr("Find suppliers")}</Button></form>
+  <div className="space-y-4 lg:col-span-2">{!res?<Empty text={tr("Enter your requirement to see ranked suppliers.")}/>:res.map((s,i)=><SupplierCard key={s.id} s={s} best={i===0}/>)}{res&&<p className="text-xs text-gray-500">{tr("Scores weigh product, quantity, quality, distance, price and delivery. Demo Data.")}</p>}</div></div></Page></>}

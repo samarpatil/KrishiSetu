@@ -1,0 +1,5 @@
+import {Select} from '../common/Field'
+export const defaultFilters={category:'All',location:'All',price:'All',quantity:'All',quality:'All',delivery:'All'}
+const opts={category:['All','Vegetables','Grains','Oilseeds'],location:['All','Sehore','Indore','Ujjain','Vidisha'],price:['All','Under ₹30','₹30 and above'],quantity:['All','Under 2,000 kg','2,000 kg and above'],quality:['All','Grade A','Grade B'],delivery:['All','Tomorrow']}
+export const applyFilters=(list,q,f)=>list.filter(p=>(p.name+p.seller).toLowerCase().includes(q.toLowerCase())&&(f.category==='All'||p.category===f.category)&&(f.location==='All'||p.loc===f.location)&&(f.quality==='All'||p.quality===f.quality)&&(f.price==='All'||(f.price==='Under ₹30'?p.price<30:p.price>=30))&&(f.quantity==='All'||(f.quantity==='Under 2,000 kg'?p.qty<2000:p.qty>=2000))&&(f.delivery==='All'||p.delivery==='Tomorrow'))
+export default function FilterPanel({filters,onChange}){return <div className="grid grid-cols-2 gap-2 md:grid-cols-6">{Object.keys(opts).map(k=><Select key={k} aria-label={k} value={filters[k]} onChange={v=>onChange({...filters,[k]:v})} options={opts[k]}/>)}</div>}

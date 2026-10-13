@@ -1,0 +1,1 @@
+export const seedProduce=[{id:'m1',name:'Tomatoes',qty:1850,price:28,quality:'Grade A',loc:'Sehore',status:'Active'},{id:'m2',name:'Green Chilli',qty:640,price:52,quality:'Grade B',loc:'Sehore',status:'Active'},{id:'m3',name:'Onions',qty:900,price:22,quality:'Grade A',loc:'Sehore',status:'Low stock'}]

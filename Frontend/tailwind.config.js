@@ -1,0 +1,1 @@
+export default {content:['./index.html','./src/**/*.{js,jsx}'],theme:{extend:{colors:{field:{50:'#f4f8f1',100:'#e3eedb',200:'#c5ddb6',500:'#3f8f4f',600:'#2d7a3e',700:'#1f6035',900:'#0e3320'},soil:'#8a6a3d',ink:'#1d2420'},fontFamily:{sans:['"Segoe UI"','system-ui','sans-serif'],display:['Georgia','"Iowan Old Style"','serif']}}},plugins:[]}

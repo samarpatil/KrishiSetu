@@ -1,0 +1,2 @@
+import {tr} from '../../i18n'
+export default function DataTable({cols,rows}){return <div className="card overflow-x-auto !p-0"><table className="w-full text-left text-sm"><thead className="bg-field-100 text-gray-600"><tr>{cols.map(c=><th key={c} className="px-4 py-2 font-medium">{tr(c)}</th>)}</tr></thead><tbody>{rows.map((r,i)=><tr key={i} className="border-t border-field-100">{r.map((c,j)=><td key={j} className="px-4 py-2">{c}</td>)}</tr>)}</tbody></table></div>}
